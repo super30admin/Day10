@@ -1,0 +1,43 @@
+T.c --> O(m*n)
+S.c --> O(1) 
+class Solution {
+  public int[] findDiagonalOrder(int[][] matrix) {
+     
+     int m = matrix.length;
+     int n = matrix[0].length;
+
+     int[] result = new int[m*n];
+     int dir = 1;
+     int i =0;
+     int j =0;
+     int count = 0;
+     while(i<m && j<n){
+        result[count] = matrix[i][j];
+        count++;
+         if(dir == 1){
+            if(j ==n-1){
+                i++;
+                dir = -1;
+            }else if(i ==0){
+                j++;
+                dir = -1;
+            }else{
+                i--;
+                j++;
+            }
+          }else if(dir == -1){
+            if(i == m-1){
+                j++;
+                dir = 1;
+            }else if(j ==0){
+                i++;
+                dir = 1;
+            }else{
+                i++;
+                j--;
+            }
+          }        
+     }
+    return result;     
+  }
+}
