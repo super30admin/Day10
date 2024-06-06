@@ -1,0 +1,27 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+// take a result array and store right product of the array in it. traverse the array again in the reverse order and multiply the left product to get the final answer
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return null;
+        }
+        int[] result = new int[nums.length];
+        int rp = 1;
+        result[0] = rp;
+        for(int i = 1; i < nums.length; i++) {
+            rp *= nums[i - 1];
+            result[i] = rp;
+        }
+        rp = 1;
+        for(int i = nums.length - 2; i >= 0; i--) {
+            rp *= nums[i + 1];
+            result[i] *= rp;
+        }
+        return result;
+    }
+}
