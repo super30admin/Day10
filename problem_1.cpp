@@ -11,6 +11,7 @@
  * Right Pass: Calculate the product of all elements to the right of each index and combine it 
  *             with the left product to get the final result.
  */
+
 #include<iostream>
 #include<vector>
 
