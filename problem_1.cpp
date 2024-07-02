@@ -1,6 +1,15 @@
 /*
+ *                  Product of Array Except Self
+ *
+ * Leetcode : https://leetcode.com/problems/product-of-array-except-self/description/
  * Time complexity : O(N)
  * Space complexity : O(N) 
+ * Approach :
+ * Calculate the product of all elements of the array except the current element without using division. 
+ * This is done in two main passes:
+ * Left Pass: Calculate the product of all elements to the left of each index.
+ * Right Pass: Calculate the product of all elements to the right of each index and combine it 
+ *             with the left product to get the final result.
  */
 #include<iostream>
 #include<vector>
