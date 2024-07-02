@@ -2,10 +2,10 @@
  *                  Diagonal Traverse
  *
  * Leetcode : https://leetcode.com/problems/diagonal-traverse/description/
- * Time complexity : 
- * Space complexity : 
+ * Time complexity : O(m * n)
+ * Space complexity : O(m * n)
  * Approach :
- * 
+ *      Traverse the matrix diagonally, changing the direction when reaching the boundaries.
  */
 #include<iostream>
 #include<vector>
