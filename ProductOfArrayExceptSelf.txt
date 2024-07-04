@@ -1,0 +1,28 @@
+//Time Complexity: O(n)
+//Space Complexity: O(1)
+class Solution {
+    public int[] productExceptSelf(int[] nums) {     
+       int left=1;
+       int output[]=new int[nums.length];
+       int n=nums.length;
+       //output
+       //1,1,2,6
+       //left traversal
+       for(int i=0;i<nums.length;i++){
+            output[i]=left;
+            left*=nums[i];
+       }
+
+       //Right traversal
+       //1,1,2,6
+       //24,12,8,6
+       //right
+       //1,4,12,24
+       int right=1;
+       for(int i=n-1;i>=0;i--){
+            output[i]*=right;
+            right*=nums[i];
+       }              
+       return output;
+    }
+}
