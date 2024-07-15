@@ -1,0 +1,130 @@
+#Problem 1
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums == None or len(nums) == 0:
+            return []
+
+        leftArr = []
+
+        rP = 1
+
+        for i in range(len(nums)):
+            if i == 0:
+                leftArr.append(rP)
+            else:
+                rP = rP * nums[i-1]
+                leftArr.append(rP)
+        
+        rP = 1
+        
+        for i in range(len(nums) - 1, -1, -1):
+            if i == len(nums) - 1:
+                leftArr[i] = leftArr[i] * rP
+            else:
+                rP = rP * nums[i + 1]
+                leftArr[i] = leftArr[i] * rP
+        
+        return leftArr
+
+#Problem 2
+
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        if mat == None or len(mat[0]) == 0:
+            return []
+        m = len(mat)
+        n = len(mat[0])
+        dir = 1
+        row = 0
+        col = 0
+        retList = []
+        while row < m and col < n:
+            if dir == 1:
+                if col == n - 1:
+                    retList.append(mat[row][col])
+                    dir = -1
+                    row = row + 1
+                elif row == 0:
+                    retList.append(mat[row][col])
+                    dir = -1
+                    col = col + 1
+                else:
+                    retList.append(mat[row][col])
+                    row = row - 1
+                    col = col + 1
+            else:
+                if row == m - 1:
+                    retList.append(mat[row][col])
+                    dir = 1
+                    col = col + 1
+                elif col == 0:
+                    retList.append(mat[row][col])
+                    dir = 1
+                    row = row + 1
+                else: 
+                    retList.append(mat[row][col])
+                    row = row + 1
+                    col = col - 1
+        return retList
+            
+
+#Problem 3
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if matrix == None or len(matrix[0]) == 0:
+            return []
+        m = len(matrix)
+        n = len(matrix[0])
+
+        T = 0
+        B = m - 1
+        R = n - 1
+        L = 0
+        retList = []
+        i = 0
+        j = 0
+
+        while L <= R and T <= B:
+           # print(matrix[i][j])
+            #right
+            while j <= R:
+                retList.append(matrix[L][j])
+                j = j + 1
+            #bring back j by 1
+            j = j - 1
+            #increase T
+            T = T + 1
+            i = T
+            #down
+            #print(matrix[i][j])
+            while i <= B:
+                retList.append(matrix[i][R])
+                i = i + 1
+            i = i - 1
+            R = R - 1
+            j = R
+            #left
+            #print(matrix[i][j])
+            if T <= B:
+                while j >= L:
+                    retList.append(matrix[B][j])
+                    j = j - 1
+                j = j + 1
+                B = B - 1
+                i = B
+            #up
+            if L <= R:
+                while i >= T:
+                    retList.append(matrix[i][L])
+                    i = i - 1
+                i = i + 1
+                L = L + 1
+                j = L
+            # print(T)
+            # print(B)
+            # print(L)
+            # print(R)
+        return retList
