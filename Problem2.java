@@ -1,3 +1,6 @@
+//Time = O(m*n)
+//Space = O(m*n)
+
 public class DiagonalOrder {
     public static int[] findDiagonalOrder(int[][] matrix) {
         // Check for empty matrix
