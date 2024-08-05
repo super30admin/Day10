@@ -1,0 +1,194 @@
+Arrays 1
+
+
+
+problem 1: product of array except itself:
+
+
+
+solution 1:
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums == None or len(nums) == 0:
+            return []
+        n = len(nums)
+        left = [0 for i in range(n)]
+        right = [0 for i in range(n)]
+        result = []
+        rpl = 1
+        rpr = 1
+
+        left [0] = 1
+        for i in range(1 , n):
+            rpl = rpl * nums[i -1]
+            left[i]= rpl
+        
+        right[n-1] = 1
+        for j in range(n-2 , -1 , -1):
+            rpr = rpr * nums[j + 1]
+            right[j] = rpr
+
+        for k in range(n):
+            result.append(left[k] * right[k])
+
+        return result
+
+
+solution 2:
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums == None or len(nums) == 0:
+            return []
+        
+        n = len(nums)
+        left = [1] * n  # Initialize left array with 1s
+        right = [1] * n  # Initialize right array with 1s
+        result = []
+        
+        rpl = 1
+        for i in range(1, n):
+            rpl = rpl * nums[i - 1]
+            left[i] = rpl
+        
+        rpr = 1
+        for j in range(n - 2, -1, -1):
+            rpr = rpr * nums[j + 1]
+            right[j] = rpr
+        
+        for k in range(n):
+            result.append(left[k] * right[k])
+        
+        return result
+
+
+
+solution 3:
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if nums is None or len(nums) == 0:
+            return []
+        
+        n = len(nums)
+        result = [1] * n  # Initialize result array with 1s
+
+        # Calculate left products
+        left_product = 1
+        for i in range(1, n):
+            left_product *= nums[i - 1]
+            result[i] = left_product
+        
+        # Calculate right products and multiply with left products
+        right_product = 1
+        for i in range(n - 2, -1, -1):
+            right_product *= nums[i + 1]
+            result[i] *= right_product
+        
+        return result
+
+
+
+
+
+
+
+
+problem 2: Diagonal traversal
+
+#TC O(m*n) and SC O(1)
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        if mat == None or len(mat) == 0:
+            return []
+
+        m = len(mat)
+        n =len(mat[0])
+        result =[0 for i in range(m*n)]
+        index = 0
+        Dir =1
+        row =0
+        col =0
+        while index < m*n:
+            result[index] = mat[row][col]
+            index += 1
+            if Dir == 1:
+                if col == n - 1:
+                    Dir = -1
+                    row = row + 1
+                elif row == 0:
+                    Dir = -1
+                    col = col + 1
+                else:
+                    row = row - 1
+                    col = col + 1
+
+            elif Dir == -1:
+                if row == m - 1:
+                    Dir = 1
+                    col = col + 1
+                elif col == 0:
+                    Dir = 1
+                    row = row + 1
+                else:
+                    col = col - 1
+                    row = row + 1
+        return result
+
+
+
+
+
+
+problem 3: Spiral Matrix
+
+#TC O(m*n) and SC O(1)
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if matrix == None or len(matrix) == 0:
+            return []
+
+        m = len(matrix)
+        n =len(matrix[0])
+        result =[]
+        left = 0
+        right = n - 1
+        top = 0
+        bottom = m - 1
+        while top <= bottom and left <= right:
+            # move from left to right
+            for i in range(left, right + 1):
+                result.append(matrix[top][i])
+            top = top +1
+
+            # move from top to bottom
+            if top <= bottom and left <= right:
+                for i in range(top, bottom + 1):
+                    result.append(matrix[i][right])
+                right = right - 1
+
+            # move from right to left
+            if top <= bottom and left <= right:
+                for i in range(right , left -1 , -1):
+                    result.append(matrix[bottom][i])
+                bottom = bottom - 1
+
+            # move from bottom to top
+            if top <= bottom and left <= right:
+                for i in range(bottom , top - 1 , -1):
+                    result.append(matrix[i][left])
+                left = left + 1
+        
+        return result
