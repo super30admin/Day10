@@ -26,13 +26,13 @@ public class SpiralMatrix {
                 right--;
             }
             //bottom row
-            if(left<=right && top <=bottom){
+            if(left<=right){
                 for(int j=right;j>=left;j--){
                     result.add(matrix[bottom][j]);
                 }
                 bottom--;
             }
-            if(left<=right && top <=bottom) {
+            if(left<=right) {
                 for(int i=bottom;i>=top;i--){
                     result.add(matrix[i][left]);
                 }
