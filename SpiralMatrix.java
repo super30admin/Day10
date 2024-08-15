@@ -1,5 +1,5 @@
 //Time Complexity: O(m*n)
-//Space Complexity: O(m*n)
+//Space Complexity: O(1)
 import java.util.ArrayList;
 import java.util.List;
 public class SpiralMatrix {
