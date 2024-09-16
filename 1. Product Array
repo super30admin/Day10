@@ -1,0 +1,25 @@
+https://leetcode.com/problems/product-of-array-except-self/submissions/
+//Time:O(n)
+//Space: O(1)
+//LeetCode:Yes
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int [] a = new int[nums.length];
+        int rp=1;
+        a[0]=1;
+        //Left to Right of nums array
+        for(int i=1;i<nums.length;i++)
+        {
+            a[i]=a[i-1]*nums[i-1];
+        }
+        
+        //Right to left of result array with nums Array value store in rp pointer
+        for(int i=a.length-2;i>=0;i--)
+        {
+             rp=rp*nums[i+1];
+         a[i]=rp *a[i];
+           
+        }
+        return a;
+}
+}

@@ -1,0 +1,62 @@
+https://leetcode.com/problems/diagonal-traverse/
+//Time :O(m*n)(Total no of elements there in 2D array
+//Space:O(1)
+//LeetCode:Yes
+
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        
+        int m= mat.length; // Row
+        int n=mat[0].length; // Column
+        int dir=1; // Tracking direction
+        int[] result = new int[m*n]; 
+        int i=0,j=0,index=0;
+        while(index<m*n)
+        {
+            result[index]=mat[i][j]; 
+            index++;
+            if(dir==1) // If direction is Uppward
+            {
+                if(j==n-1) // If the j pointer reached last element of column  
+                {
+                    dir=-1; //then change the direction to down
+                    i++; // Increment the row by 1 so from the next row it start traversing downward direction.
+                }
+                
+                else if(i==0) //If it starts from first element to move upward then there are no futhur element from index 0 to move above so change the direction to down
+                {
+                    dir=-1;
+                    j++; // Increase the column pointer by 1 and start moving downward from that point.
+                }
+                
+                else
+                {
+                    i--; j++; // Increase the column count by 1 and decrease row count by 1
+                }
+            }
+            else
+            {
+                if(i==m-1) // If row pointer reached last element of row the change the direction upward and start moving above from there.
+                {
+                    dir=1; // change direction to upward.
+                    j++; // Increase the coloumn count.
+                }
+                else if(j==0) // if the column pointer reaches at 0 index while row pointer is not at last index 
+                {
+                    i++; // shift to next row and start moving upward.
+                    dir=1; // change the direction
+                }
+                    
+                else
+                {
+                    j--; // Reduce count of column and increment the count of row by one.
+                    i++;
+                }
+                
+                
+            }
+        }
+        return result;
+    }
+}

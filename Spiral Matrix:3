@@ -1,0 +1,54 @@
+https://leetcode.com/problems/spiral-matrix/
+//Time:O(m*n)
+//Space:O(1)
+//Leetcode:yess
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        
+        if(matrix.length==0 ||matrix==null)
+            return new ArrayList<>();
+        
+        List<Integer> result = new ArrayList<Integer>(); 
+        int m= matrix.length;
+        int n=matrix[0].length;
+        int top=0,bottom=m-1,left=0,right=n-1; 
+        
+        while(top<=bottom  && left<=right)
+        {for(int i=left;i<=right;i++) // First line
+            { result.add(matrix[top][i]);
+               
+            }
+            top++; // Points to Second Line
+            for(int j=top;j<=bottom;j++) // Last Line 
+            {
+                result.add(matrix[j][right]);
+            }
+            right--; // Points to second Last line
+            if(top<=bottom) // Checks whether already top and bottom has crossed or pointing same.
+            {
+            for(int k=right;k>=left;k--)
+            {
+                 result.add(matrix[bottom][k]);
+          
+            }
+            bottom--;
+            }
+            
+            if(left<=right) 
+            {
+            
+            
+             for(int k=bottom;k>=top;k--)
+            {
+                 result.add(matrix[k][left]);
+               
+            }
+            left++;
+            }
+            
+            
+            
+        }
+        return result;
+    }
+}
