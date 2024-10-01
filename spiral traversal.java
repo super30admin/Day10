@@ -3,32 +3,26 @@ class Solution {
         int n=matrix.length;
         int m = matrix[0].length;
         List<Integer> res = new ArrayList<>();
-        int i=0,j=0,c=0;
-        while(c<(m*n)){
-            while(j<m && matrix[i][j]!=-1000){
-                res.add(matrix[i][j]);
-                matrix[i][j++]=-1000;
-                c++;
+        int i=0,j=0,top=0,right=m-1,left=0, bottom=n-1;
+        while(top<=bottom && left<=right){
+            while(j<=right){
+                res.add(matrix[i][j++]);         
             }
-            i++;j--;
-            while(i<n && matrix[i][j]!=-1000){
-                res.add(matrix[i][j]);
-                matrix[i++][j]=-1000;
-                c++;
+            i++;j--;top++;
+
+            while(i<=bottom){
+                res.add(matrix[i++][j]);
             }
-            j--;i--;
-            while(j>=0 && matrix[i][j]!=-1000){
-                res.add(matrix[i][j]);
-                matrix[i][j--]=-1000;
-                c++;
+            j--;i--;right--;
+
+            while(j>=left && top<=bottom){
+                res.add(matrix[i][j--]);
             }
-            i--;j++;
-            while(i>=0 && matrix[i][j]!=-1000){
-                res.add(matrix[i][j]);
-                matrix[i--][j]=-1000;
-                c++;
+            i--;j++;bottom--;
+            while(i>=top && left<=right){
+                res.add(matrix[i--][j]);
             }
-            j++;i++;
+            j++;i++;left++;
             
         }
         return res;
