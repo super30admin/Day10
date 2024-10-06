@@ -1,0 +1,29 @@
+// Time complexity o(n)
+// Space complexity o(n)
+// Solution worked on leetcode: Yes.
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] leftArray = new int[nums.length];
+        int[] rightArray = new int[nums.length];
+        int[] finalArray = new int[nums.length];
+        leftArray[0] =1;
+        rightArray[nums.length-1] = 1;
+        for(int i = 1;i<nums.length; i++) {
+            leftArray[i] = nums[i-1] * leftArray[i-1];
+        }
+        
+
+        for(int i = nums.length-2; i>=0; i--) {
+            rightArray[i] = nums[i+1] * rightArray[i+1];
+        }
+
+        for(int i = 0;i<nums.length; i++) {
+            finalArray[i] = leftArray[i] * rightArray[i];
+        }
+
+return finalArray;
+
+        
+    }
+}
