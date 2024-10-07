@@ -33,34 +33,35 @@ Input:
 
 Output: [1,2,4,7,5,3,6,8,9]
 
-## Problem 3
-Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
-
-Example 1:
-
-Input:
-
-[
-
-[ 1, 2, 3 ],
-
-[ 4, 5, 6 ],
-
-[ 7, 8, 9 ]
-
-]
-Output: [1,2,3,6,9,8,7,4,5]
-Example 2:
-
-Input:
-
-[
-
-[1, 2, 3, 4],
-
-[5, 6, 7, 8],
-
-[9,10,11,12]
-
-]
-Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+class Spiral:
+    def spiralOrder(self, matrix):
+        rows = len(matrix)
+        cols = len(matrix[0])
+        total_elements = rows * cols
+        e = 0
+        result = []
+        r,c = 0,0
+        while e < total_elements:
+            if r % 2 == 0: # left start
+                c = 0
+                while c < cols:
+                    result.append(matrix[r][c])
+                    #print(matrix[r][c])
+                    e += 1
+                    c += 1
+                r += 1
+            else:
+                c = cols - 1
+                while c >= 0:
+                    result.append(matrix[r][c])
+                    #print(matrix[r][c])
+                    c -= 1
+                    e += 1
+                r += 1
+            
+        return result
+        
+inputArr = [[1,2,3],[4,5,6],[7,8,9]]
+s = Spiral()
+print(s.spiralOrder(inputArr))
+    
