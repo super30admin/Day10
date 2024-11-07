@@ -1,4 +1,3 @@
-# Explain your approach in three sentences only at top of your code
 # Approach: Traverse the matrix diagonally by iterating over each diagonal's starting points and switching direction with each new diagonal.
 # Use a dictionary to collect elements by their diagonal index (row + col), and then construct the output array by appending elements in reverse order for alternating diagonals.
 # This approach ensures that elements are traversed in the required diagonal order and simplifies handling direction changes.
