@@ -1,12 +1,14 @@
-# // Time Complexity :
-# // Space Complexity :
-# // Did this code successfully run on Leetcode :
+# // Time Complexity :O(n) for traversal
+# // Space Complexity :O(n) for result array
+# // Did this code successfully run on Leetcode : Yes
 # // Three line explanation of solution in plain english
 
-# // Your code here along with comments explaining your approach
-# We create product of all elements to the left and store in resulkt array.
+# We create product of all elements to the left(running product) and store in result array.
 # We don't touch OG nums, we use the resultant array itself to multiply with original array.
-# we 
+# Store product of left* right in resultant array, essentially excluding number ar current index.
+
+# // Your code here along with comments explaining your approach
+
 
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
