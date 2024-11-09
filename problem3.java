@@ -1,7 +1,7 @@
 // Time Complexity : o(n)
 // Space Complexity : o(1) for answer array
 // Did this code successfully run on Leetcode : Yes
-// We solve by 4 pointers approach move the pointers based on the base conditions
+// We solve by 4 pointers approach move the pointers based on the base conditions..
 
 import java.util.ArrayList;
 import java.util.List;
