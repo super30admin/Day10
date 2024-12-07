@@ -1,0 +1,23 @@
+# Approach:
+# 1. Compute the prefix product for each index and store it in the output array.
+# 2. Use a running product from the right to update the output array with the combined product (prefix * suffix).
+# 3. This solution avoids division and achieves O(n) time complexity with constant space (ignoring the output array).
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        output = [1] * n
+
+        # Compute prefix product
+        prefix = 1
+        for i in range(n):
+            output[i] = prefix
+            prefix *= nums[i]
+
+        # Compute suffix product and combine with prefix
+        suffix = 1
+        for i in range(n - 1, -1, -1):
+            output[i] *= suffix
+            suffix *= nums[i]
+
+        return output
