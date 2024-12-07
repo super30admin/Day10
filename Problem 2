@@ -1,0 +1,25 @@
+# Approach:
+# 1. Use a dictionary to group elements by their sum of indices (i + j), which represents the diagonal.
+# 2. Traverse the matrix and populate the dictionary with elements for each diagonal.
+# 3. Collect the diagonals from the dictionary, reversing the order of every other diagonal for the required order.
+
+class Solution:
+    def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]:
+            return []
+        
+        diagonals = {}
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if i + j not in diagonals:
+                    diagonals[i + j] = []
+                diagonals[i + j].append(matrix[i][j])
+        
+        result = []
+        for key in sorted(diagonals.keys()):
+            if key % 2 == 0:
+                result.extend(reversed(diagonals[key]))
+            else:
+                result.extend(diagonals[key])
+        
+        return result
