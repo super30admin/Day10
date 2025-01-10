@@ -29,7 +29,7 @@ public:
             dp[i] = rp;
         }
 
-        // Multiply and store the result of element product on the right
+        // Multiply the right product with the current value in result array at current index and store the result of the product
         rp = 1;
         for (int i = nums.size() - 2; i >= 0; i--)
         {
