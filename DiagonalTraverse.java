@@ -6,9 +6,9 @@ import java.util.Arrays;
 // Manipulation of the row and column index along with the direction status makes it easier to traverse elements diagonally.
 public class DiagonalTraverse {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } })));
-        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1, 2, 3 } })));
-        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1 }, { 2 }, { 3 } })));
+        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }))); // 124753689
+        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1, 2, 3 } }))); // 1 2 3
+        System.out.println(Arrays.toString(findDiagonalOrder(new int[][] { { 1 }, { 2 }, { 3 } }))); // 1 2 3
     }
 
     public static int[] findDiagonalOrder(int[][] mat) {
