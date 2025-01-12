@@ -60,10 +60,12 @@ class Solution(object):
                 if row == m - 1:
                     col += 1
                     dirs = 1
+                
                 # first column
                 elif col == 0:
                     row += 1
                     dirs = 1
+                
                 # normally next element for this direction
                 else:
                     row += 1
