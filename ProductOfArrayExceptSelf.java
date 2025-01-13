@@ -11,10 +11,6 @@
  * the right in second pass.
  */
 
-// Time Complexity :
-// Space Complexity :
-// Did this code successfully run on Leetcode :
-
 public class ProductOfArrayExceptSelf {
 
   public int[] productExceptSelf(int[] nums) {
