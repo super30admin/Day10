@@ -13,6 +13,8 @@ Note: Please solve it without division and in O(n).
 Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 
+LeetCode: https://leetcode.com/problems/product-of-array-except-self/
+
 ## Problem 2
 
 Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
@@ -32,6 +34,8 @@ Input:
 ]
 
 Output: [1,2,4,7,5,3,6,8,9]
+
+LeetCode: https://leetcode.com/problems/diagonal-traverse/
 
 ## Problem 3
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
@@ -64,3 +68,5 @@ Input:
 
 ]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+LeetCode: https://leetcode.com/problems/spiral-matrix/
