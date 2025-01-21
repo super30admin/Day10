@@ -1,0 +1,9 @@
+Time Complexity : O(nm)
+Space Complexity : O(1) (Modified the question 2d array, else can be optimized to O(m))
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach in three sentences only
+Wrote a sub function which takes extreme rows and columns as parameters and prints the circumference. Then iteratively brought
+the extreme pointers together till they coalesce together
