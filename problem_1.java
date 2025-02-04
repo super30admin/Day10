@@ -2,6 +2,7 @@
 // Space Complexity :Auxiliary O(1)
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : No
+import java.util.Arrays;
 class problem_1 {
     public int[] productExceptSelf(int[] nums) {
         if(nums == null || nums.length == 0) return nums;
