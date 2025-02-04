@@ -1,4 +1,7 @@
-import java.util.Arrays;
+// Time Complexity :O(n*m) where n is row and m is columns
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 class problem_2 {
     public int[] findDiagonalOrder(int[][] matrix) {
         int m = matrix.length;

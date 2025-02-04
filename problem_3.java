@@ -1,3 +1,7 @@
+// Time Complexity :O(n*m) where n is row and m is columns
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 import java.util.ArrayList;
 import java.util.List;
 class problem_3 {
