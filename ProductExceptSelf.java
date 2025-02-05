@@ -1,3 +1,7 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 /*
 Logic is for any element take product of all elements on left and take products of all elements on right.
 We can use a new array to calculate product of all elements to the left of an index. In another loop, we can calculate product of right elements,

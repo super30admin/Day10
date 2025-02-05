@@ -1,3 +1,7 @@
+// Time Complexity : O(m*n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,25 +22,21 @@ class SpiralMatrix {
             //top
             for(int j=left;j<=right;j++){
                 ll.add(matrix[top][j]);
-                System.out.println("top");
             }
             top++;
             //right
             for(int j=top;j<=bottom;j++){
                 ll.add(matrix[j][right]);
-                System.out.println("right");
             }
             right--;
             //bottom
             for(int j=right;j>=left && top<=bottom;j--){
                 ll.add(matrix[bottom][j]);
-                System.out.println("bottom");
             }
             bottom--;
             //left
             for(int j=bottom;j>=top && left<=right;j--){
                 ll.add(matrix[j][left]);
-                System.out.println("left");
             }
             left++;
         }
